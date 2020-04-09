@@ -69,7 +69,7 @@ $Navigation_config = array(
 
         //evento para el boton login
         'CmdLogin' => array(
-            'class' => 'CmdLogin',
+            'class' => 'CmdLogin', // levanta la clase CmdLogin en web commands
             'validated' => 'false',
             'desc' => 'Cargar Forma Home',
             'views' => array(
