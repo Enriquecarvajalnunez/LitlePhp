@@ -1,20 +1,20 @@
-<?php /* Smarty version 3.1.34-dev-7, created on 2020-04-07 06:07:07
+<?php /* Smarty version 3.1.34-dev-7, created on 2020-04-11 22:18:38
          compiled from 'C:\xampp\htdocs\Litlephp\applications\launcher\language\es\Templates.lan' */ ?>
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-04-07 06:07:07
+/* Smarty version 3.1.34-dev-7, created on 2020-04-11 22:18:38
   from 'C:\xampp\htdocs\Litlephp\applications\launcher\language\es\Templates.lan' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e8bfc6b7d4dd2_83516335',
+  'unifunc' => 'content_5e92261e808f78_03650905',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1ff09efa337e2e4b100c2c836ba8e55980007776' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Litlephp\\applications\\launcher\\language\\es\\Templates.lan',
-      1 => 1586144174,
+      1 => 1586636305,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e8bfc6b7d4dd2_83516335 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e92261e808f78_03650905 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->smarty->ext->configLoad->_loadConfigVars($_smarty_tpl, array (
   'sections' => 
   array (
@@ -72,11 +72,11 @@ $_smarty_tpl->smarty->ext->configLoad->_loadConfigVars($_smarty_tpl, array (
         'IAMUSER' => 'Soy un usuario registrado',
         'REGISTER' => 'Registrar',
         'TERMS' => 'Acepto Terminos y Condiciones',
-        'NEWUSER' => 'REgistrarse como nuevo usuario',
+        'NEWUSER' => 'Registrarse como nuevo usuario',
         'REMEMBERPASS' => 'Recordar Mi Contraseña',
       ),
     ),
-    'register' => 
+    'registro' => 
     array (
       'vars' => 
       array (
@@ -92,6 +92,10 @@ $_smarty_tpl->smarty->ext->configLoad->_loadConfigVars($_smarty_tpl, array (
         'ROLE' => 'Rol',
         'IDTYPE' => 'Tipo Identificacion',
         'NEWUSER' => 'Registrarse como nuevo usuario',
+        'BTNSINGIN' => 'Registrar',
+        'CITY' => 'Ciudad',
+        'NOWUSER' => 'Ya soy un miembro',
+        'COMPANY' => 'Empresa',
       ),
     ),
     'home' => 

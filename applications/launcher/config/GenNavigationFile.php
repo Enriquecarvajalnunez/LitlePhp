@@ -55,6 +55,7 @@ $Navigation_config = array(
             )
         ),
 
+        //Pantalla vista para el login 
         'CmdDefaultLogin' => array(
             'class' => 'CmdDefaultLogin',
             'validated' => 'false',
@@ -67,7 +68,7 @@ $Navigation_config = array(
             )
         ),
 
-        //evento para el boton login
+        //Evento para el boton login pantalla de inicio 
         'CmdLogin' => array(
             'class' => 'CmdLogin', // levanta la clase CmdLogin en web commands
             'validated' => 'false',
@@ -79,6 +80,36 @@ $Navigation_config = array(
                 ),
                 'fail' => array(
                     'view' => 'Form_Login.tpl',
+                    'redirect' => 0
+                )                
+            )
+        ),
+
+        //Pantalla vista para el registro de usuario contiene los campos
+        'CmdDefaultRegistro' => array(
+            'class' => 'CmdDefaultRegistro',
+            'validated' => 'false',
+            'desc' => 'Cargar Forma Autenticacion',
+            'views' => array(
+                'success' => array(
+                    'view' => 'Form_Registro.tpl',
+                    'redirect' => 0
+                )                
+            )
+        ),
+
+
+        'CmdRegistro' => array(
+            'class' => 'CmdRegistro',
+            'validated' => 'false',
+            'desc' => 'Cargar Forma Home',
+            'views' => array(
+                'success' => array(
+                    'view' => 'Form_HomeAdmin.tpl',
+                    'redirect' => 0
+                ),
+                'fail' => array(
+                    'view' => 'Form_Registro.tpl',
                     'redirect' => 0
                 )                
             )

@@ -40,84 +40,24 @@ class UsuariosManager
      * @author LittlePHP Framework
      * @return integer
      */
-    function addUsuarios($USUAID, $USUANOMB, $USUAAPEL, $USUATELE, $USUAIDENT, $USUADIRE, $USUAEMAI, $USUAPASS, $USUAESTA, $ROLID_FK, $CIUDID_FK, $TIPOSID_FK)
+    function addUsuarios($USUAID, $USUANOMB, $USUAAPEL, $USUATELE, $USUAIDENT, $USUADIRE, $USUAEMAI, $USUAPASS, $USUAESTA, $ROLID, $CIUDID, $TIPOSID,$USUAEMPR)
     {
+        $FECHACREA=date("Y-m-d");
+        $FECHAACTUALIZA=date("Y-m-d");
         if ($this->gateway->existUsuarios($USUAID) == 0) {
-            $USUAID = $this->gateway->maxId();
-            $result = $this->gateway->addUsuarios($USUAID, $USUANOMB, $USUAAPEL, $USUATELE, $USUAIDENT, $USUADIRE, $USUAEMAI, $USUAPASS, $USUAESTA, $ROLID_FK, $CIUDID_FK, $TIPOSID_FK);
+            //$USUAID = $this->gateway->maxId();
+            $result = $this->gateway->addUsuarios($USUAID, $USUANOMB, $USUAAPEL, $USUATELE, $USUAIDENT, $USUADIRE, $USUAEMAI, $USUAPASS, $USUAESTA, $ROLID, $CIUDID, $TIPOSID,$FECHACREA,$FECHAACTUALIZA,$USUAEMPR);
             if ($result) {
                 $this->UnsetRequest();
                 return EXITO_OPERACION_REALIZADA;
             } else {
                 return ERROR_OPERACION_NO_REALIZADA;
             }
-        } else {
-            return $this->updateUsuarios($USUAID, $USUANOMB, $USUAAPEL, $USUATELE, $USUAIDENT, $USUADIRE, $USUAEMAI, $USUAPASS, $USUAESTA, $ROLID_FK, $CIUDID_FK, $TIPOSID_FK);
+        } 
+        else {
+            return $this->updateUsuarios($USUAID, $USUANOMB, $USUAAPEL, $USUATELE, $USUAIDENT, $USUADIRE, $USUAEMAI, $USUAPASS, $USUAESTA, $ROLID, $CIUDID, $TIPOSID,$FECHACREA,$FECHAACTUALIZA);
           	//return ERROR_DATO_EXISTE;
         }
-    }
-
-    /**
-     * Metodo para actualizar datos de la tabla: usuarios
-     * @author LittlePHP Framework
-     * @return integer
-     */
-    function updateUsuarios($USUAID, $USUANOMB, $USUAAPEL, $USUATELE, $USUAIDENT, $USUADIRE, $USUAEMAI, $USUAPASS, $USUAESTA, $ROLID_FK, $CIUDID_FK, $TIPOSID_FK)
-    {
-        if ($this->gateway->existUsuarios($USUAID) == 1) {
-            $result = $this->gateway->updateUsuarios($USUAID, $USUANOMB, $USUAAPEL, $USUATELE, $USUAIDENT, $USUADIRE, $USUAEMAI, $USUAPASS, $USUAESTA, $ROLID_FK, $CIUDID_FK, $TIPOSID_FK);
-            if ($result) {
-                $this->UnsetRequest();
-                return EXITO_OPERACION_REALIZADA;
-            } else {
-                return ERROR_OPERACION_NO_REALIZADA;
-            }
-        } else {
-            return ERROR_DATO_NO_EXISTE;
-        }
-    }
-
-    /**
-     * Metodo para eliminar datos de la tabla: usuarios
-     * @author LittlePHP Framework
-     * @return integer
-     */
-    function deleteUsuarios($USUAID)
-    {
-        if ($this->gateway->existUsuarios($USUAID) == 1) {
-            $result = $this->gateway->deleteUsuarios($USUAID);
-            if ($result) {
-                $this->UnsetRequest();
-                return EXITO_OPERACION_REALIZADA;
-            } else {
-                return ERROR_OPERACION_NO_REALIZADA;
-            }
-        } else {
-            return ERROR_DATO_NO_EXISTE;
-        }
-    }
-
-    /**
-     * Metodo para consultar los datos por la llave primaria de la tabla: usuarios
-     * @author LittlePHP Framework
-     * @return array
-     */
-    function getByIdUsuarios($USUAID)
-    {
-        $data_usuarios = $this->gateway->getByIdUsuarios($USUAID);
-        return $data_usuarios;
-    }
-
-    /**
-     * Metodo para consultar todos los datos de la tabla: usuarios
-     * @author LittlePHP Framework
-     * @return array
-     */
-    function getAllUsuarios()
-    {
-        $data_usuarios = $this->gateway->getAllUsuarios();
-        return $data_usuarios;
-
     }
 
     /**
@@ -128,14 +68,14 @@ class UsuariosManager
     function getExisteUSUARIO($USUAEMAI, $USUAPASS)
     {
         $usuario = $this->gateway->existeUSUARIO($USUAEMAI, $USUAPASS);
-       
+        ///print_r($usuario);
         if ($usuario) {
-                WebSession::setIAuthProperty("usuaid", $usuario[0]['USUAID']);
-                WebSession::setIAuthProperty("usuanomb", $usuario[0]['USUANOMB']);
-                WebSession::setIAuthProperty("usuaapel", $usuario[0]['USUAAPEL']);
-                WebSession::setIAuthProperty("usuatele", $usuario[0]['USUATELE']);
-                WebSession::setIAuthProperty("usuaident", $usuario[0]['USUAIDENT']);
-                WebSession::setIAuthProperty("usuaemai", $usuario[0]['USUAEMAI']);
+                WebSession::setIAuthProperty("usuaid", $usuario[0]['usuaid']);
+                WebSession::setIAuthProperty("usuanomb", $usuario[0]['usuanomb']);
+                WebSession::setIAuthProperty("usuaapel", $usuario[0]['usuaapel']);
+                WebSession::setIAuthProperty("usuatele", $usuario[0]['usuatele']);
+                WebSession::setIAuthProperty("usuaident", $usuario[0]['usuaident']);
+                WebSession::setIAuthProperty("usuaemai", $usuario[0]['usuaemai']);
                 WebSession::setIAuthProperty("commands", $array);            
             return EXITO_OPERACION_REALIZADA;
         } else {
@@ -155,7 +95,8 @@ class UsuariosManager
            return EXITO_OPERACION_REALIZADA; 
         else
           return ERROR_DATO_NO_EXISTE;
-    }     
+    }   
+
 
     /**
      * Metodo para limpiar los datos del _REQUEST de la tabla: usuarios
@@ -165,18 +106,14 @@ class UsuariosManager
     function UnsetRequest()
     {
 
-        unset($_REQUEST["register__USUAID"]);
-        unset($_REQUEST["register__USUANOMB"]);
-        unset($_REQUEST["register__USUAAPEL"]);
-        unset($_REQUEST["register__USUATELE"]);
-        unset($_REQUEST["register__USUAIDENT"]);
-        unset($_REQUEST["register__USUADIRE"]);
-        unset($_REQUEST["register__USUAEMAI"]);
-        unset($_REQUEST["register__USUAPASS"]);
-        unset($_REQUEST["register__USUAESTA"]);
-        unset($_REQUEST["register__ROLID_FK"]);
-        unset($_REQUEST["register__CIUDID_FK"]);
-        unset($_REQUEST["register__TIPOSID_FK"]);
+        unset($_REQUEST["nombre"]);
+        unset($_REQUEST["apellido"]);
+        unset($_REQUEST["telefono"]);
+        unset($_REQUEST["direccion"]);
+        unset($_REQUEST["password"]);
+        unset($_REQUEST["email"]);
+        unset($_REQUEST["identificacion"]);
+
     }
 
 

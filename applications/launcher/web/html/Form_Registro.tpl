@@ -1,4 +1,4 @@
-{config_load file="Templates.lan" section="login"}
+{config_load file="Templates.lan" section="registro"}
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,18 +34,84 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">{#TITLE2#}</p>
+      <p class="login-box-msg">{#NEWUSER#}</p>
 
       <form action="index.php" method="post">
-      <input type="hidden" name="action" value="CmdLogin">
+      <input type="hidden" name="action" value="CmdRegistro"> <!--llama el evento --> 
+      <input type="hidden" name="id" value="">
+
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="{#USERNAME#}">
+          <input type="text" name="nombre" class="form-control" placeholder="{#FULLNAME#}">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" name="apellido" class="form-control" placeholder="{#LASTNAME#}">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="email" name="email" class="form-control" placeholder="{#EMAIL#}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
+
+        <div class="input-group mb-3">
+          <input type="text" name="telefono" class="form-control" placeholder="{#PHONE#}">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" name="identificacion" class="form-control" placeholder="{#IDN#}">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" name="ciudad" class="form-control" placeholder="{#CITY#}">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" name="empresa" class="form-control" placeholder="{#COMPANY#}">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" name="direccion" class="form-control" placeholder="{#ADDRESS#}">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
         <div class="input-group mb-3">
           <input type="password" name="password" class="form-control" placeholder="{#PASSWORD#}">
           <div class="input-group-append">
@@ -53,7 +119,8 @@
               <span class="fas fa-lock"></span>
             </div>
           </div>
-        </div>
+        </div>    
+
         <div class="row">
 
           <!-- /.col -->
@@ -62,6 +129,10 @@
           </div>
           <!-- /.col -->
         </div>
+        <input type="hidden" name="estado" value="1">
+        <input type="hidden" name="rol" value="4">
+        <input type="hidden" name="tipo" value="4">
+
       </form>
 
       <!--
@@ -78,11 +149,9 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">{#FORGOT#}</a>
+        <a href="?action=CmdDefaultLogin">{#NOWUSER#}</a>
       </p>
-      <p class="mb-0">
-        <a href="?action=CmdDefaultRegistro" class="text-center">{#NEWUSER#}</a>
-      </p>
+      
     </div>
     <!-- /.login-card-body -->
   </div>
