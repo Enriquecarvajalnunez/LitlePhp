@@ -113,7 +113,31 @@ $Navigation_config = array(
                     'redirect' => 0
                 )                
             )
-        )
+        ),
+
+        'prueba' => array(
+            'class' => 'prueba',
+            'validated' => 'false',
+            'desc' => 'Cargar Forma de prueba template',
+            'views' => array(
+                'success' => array(
+                    'view' => 'prueba.tpl',
+                    'redirect' => 0
+                )                
+            )
+        ),
+
+        'CmdDefaultConsultaUsuarios' => array(
+            'class' => 'CmdDefaultConsultaUsuarios',
+            'validated' => 'false',
+            'desc' => 'Cargar Forma Autenticacion',
+            'views' => array(
+                'success' => array(
+                    'view' => 'Form_Consult_Usuarios.tpl',
+                    'redirect' => 0
+                )                
+            )
+        ),
         
 
 	) // Fin arreglo de comandos	

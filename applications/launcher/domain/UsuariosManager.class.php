@@ -105,7 +105,6 @@ class UsuariosManager
      */
     function UnsetRequest()
     {
-
         unset($_REQUEST["nombre"]);
         unset($_REQUEST["apellido"]);
         unset($_REQUEST["telefono"]);
@@ -116,8 +115,6 @@ class UsuariosManager
 
     }
 
-
-   
 }
 ?>	
  	

@@ -72,6 +72,13 @@ class Usuarios
 		return $this->consult;
 	}
 
+	function getAllUsuarios(){
+		$sql = "SELECT * FROM  usuarios";
+		$this->consult = $this->connection->GetAll($sql);
+
+		return $this->consult;
+	}
+
 
 }
 ?>
