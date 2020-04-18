@@ -25,6 +25,7 @@ class CmdRegistro {
 		   ($identificacion != "") && ($identificacion != NULL) &&
 		   ($direccion != "") && ($direccion != NULL) &&
 		   ($telefono != "") && ($telefono != NULL) &&
+		   ($ciudad != "") && ($ciudad != NULL) &&
 		   ($empresa != "") && ($empresa != NULL) 
 		   ){
 			//1ero Instancio el Manager de Autenticacion 

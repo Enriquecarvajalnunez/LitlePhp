@@ -26,20 +26,20 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-        {form name="frmConsultUsuarios" class='form-horizontal' method="post" id="frmConsultUsuarios"}          
-                    <div class="card-header">
-                      <h3 class="card-title">
+
+        <!-- PLugin que crea los botones de nuevo, editar, borrar y atrás --> 
+        {form name="frmConsultUsuarios" class='form-horizontal' method="post" id="frmConsultUsuarios"}
+                                   
+        <!-- Crea los botones --> 
 
                           {tools_barstandard type="Button" reference_id =100 
-                           form_name="frmTypesConsult"
+                           form_name="frmConsultUsuarios"
                            commands="CmdDefaultUsuarios,CmdShowByIdUsuarios,CmdDeleteUsarios,CmdDefaultHome"
                            icon_class="fa-file,fa-pencil-square-o,fa-trash,fa-reply,fa-life-ring"
                           btn_class="btn-success,btn-primary,btn-danger,btn-warning" 
                            labels="new,edit,del,back"  
-                          } 
-                      </h3>
-                    </div>
-            <!-- /.card-header -->
+                          }                                                                      
+            
                         {consult_table_bootstrap type="LIST" 
                            table_name="usuarios" 
                            llaves="USUAID"
@@ -55,11 +55,7 @@
 
                        {hidden name="action" value=""}
                        {hidden name="section_language" value="Types"}
-                     {/form}
-
-
-
-            
+            {/form} <!-- Fin PLugin -->             
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->

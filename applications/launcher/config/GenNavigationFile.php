@@ -138,8 +138,19 @@ $Navigation_config = array(
                 )                
             )
         ),
-        
 
+        'CmdDefaultUsuarios' => array(
+            'class' => 'CmdDefaultUsuarios',
+            'validated' => 'false',
+            'desc' => 'Cargar Forma registro de usuario',
+            'views' => array(
+                'success' => array(
+                    'view' => 'Form_Usuarios.tpl',
+                    'redirect' => 0
+                )                
+            )
+        ),
+        
 	) // Fin arreglo de comandos	
 
 ); //Fin Arreglo Navigation_config

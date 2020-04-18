@@ -20,8 +20,8 @@
   <!-- /.content-wrapper -->
 
 
-  <!-- /.trae el contenido de prueba.tpl -->
-{block name="content"} {/block} 
+  <!-- /.Entiendase como un metodo abstrato que es implementado en las que lo hereden-->
+{block name="content"} {/block}
 
   <!-- footer -->
     {include file="htmlConfig/footer.tpl"}
@@ -36,7 +36,8 @@
 
 <!-- scripts se encuentran los js del template-->
 {include file="htmlConfig/scripts.tpl"}
-{include file="htmlConfig/bootstrapDataTables.tpl"}
 
+<!--Incorpora funcionalidades de bootstrap-->
+{include file="htmlConfig/bootstrapDataTables.tpl"}
 </body>
 </html>
